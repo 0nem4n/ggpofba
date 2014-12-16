@@ -279,6 +279,67 @@ QuarkProcessKOF98Sprites(GGPOSession *ggpo, QuarkSprite sprites[], int count)
 {
 
    /*
+    * These are the nameplates for all the characters you can select.
+    */
+   static const struct {
+      char *character;
+      int p[2];
+   } search[] = {
+
+		{"Kyo",   		    { 00000,  00000}  },
+		{"Benimaru",   	    { 00000,  00000}  },
+		{"Daimon",  	    { 00000,  00000}  },
+		{"Terry",   	    { 00000,  00000}  },
+		{"Andy",   		    { 00000,  00000}  },
+		{"Joe",  		    { 00000,  00000}  },
+		{"Ryo",  		    { 00000,  00000}  },
+		{"Robert", 		    { 00000,  00000}  },
+		{"Yuri",   		    { 00000,  00000}  },
+		{"Leona",   	    { 00000,  00000}  },
+		{"Ralf",   		    { 00000,  00000}  },
+		{"Clark",   	    { 00000,  00000}  },
+		{"Athena",  	    { 00000,  00000}  },
+		{"Kensou", 		    { 00000,  00000}  },
+		{"Chin",  		    { 00000,  00000}  },
+		{"Mai",    		    { 00000,  00000}  },
+		{"King",  		    { 00000,  00000}  },
+		{"Chizuru",  	    { 00000,  00000}  },
+		{"Kim",   		    { 00000,  00000}  },
+		{"Choi",   		    { 00000,  00000}  },
+		{"Chang",   	    { 00000,  00000}  },
+		{"Yashiro",   	    { 00000,  00000}  },
+		{"Shermie",   	    { 00000,  00000}  },
+		{"Chris",   	    { 00000,  00000}  },
+		{"Billy",    	    { 00000,  00000}  },
+		{"Yamazaki",   	    { 00000,  00000}  },
+		{"Mary",    	    { 00000,  00000}  },
+		{"Iori",   		    { 00000,  00000}  },
+		{"Mature",  	    { 00000,  00000}  },
+		{"Vice",   	 	    { 00000,  00000}  },
+		{"Heidern",   	    { 00000,  00000}  },
+		{"Takuma",   	    { 00000,  00000}  },
+		{"Saishu",   	    { 00000,  00000}  },
+		{"HeavyD",   	    { 00000,  00000}  },
+		{"Lucky",   	    { 00000,  00000}  },
+		{"Brian",   	    { 00000,  00000}  },
+		{"Rugal",   	    { 00000,  00000}  },
+		{"Shingo",  	    { 00000,  00000}  },
+		{"Kyo 94",   	    { 00000,  00000}  },
+		{"Terry 94",   	    { 00000,  00000}  },
+		{"Andy 94",   	    { 00000,  00000}  },
+		{"Joe 94",   	    { 00000,  00000}  },
+		{"Ryo 94",    	    { 00000,  00000}  },
+		{"Robert 94",       { 00000,  00000}  },
+		{"Yuri 94",    	    { 00000,  00000}  },
+		{"Mai 94",   	    { 00000,  00000}  },
+		{"Orochi Yashiro",  { 00000,  00000}  },
+		{"Orochi Shermie",  { 00000,  00000}  },
+		{"Orochi Chris",    { 00000,  00000}  },
+		{"Billy 94",        { 00000,  00000}  },
+		{"Rugal Omega",   	{ 00000,  00000}  },
+   };
+
+   /*
     * See if it's time to start a new game...
     */
    if (GameInfo.state == STATE_IDLE) {
