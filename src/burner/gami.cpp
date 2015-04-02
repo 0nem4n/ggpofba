@@ -257,6 +257,23 @@ static void GameInpInitMacros()
 
 		if (nFireButtons == 4 && (BurnDrvGetHardwareCode() & HARDWARE_PUBLIC_MASK) == HARDWARE_SNK_NEOGEO) {
 
+			// B + C  macro
+			pgi->nInput = GIT_MACRO_AUTO;
+			pgi->nType = BIT_DIGITAL;
+			pgi->Macro.nMode = 0;
+
+			sprintf(pgi->Macro.szName, "P%i Button BC", nPlayer + 1);
+			BurnDrvGetInputInfo(&bii, nNeogeoButtons[nPlayer][1]);
+			pgi->Macro.pVal[0] = bii.pVal;
+			pgi->Macro.nVal[0] = 1;
+			BurnDrvGetInputInfo(&bii, nNeogeoButtons[nPlayer][2]);
+			pgi->Macro.pVal[1] = bii.pVal;
+			pgi->Macro.nVal[1] = 1;
+
+			nMacroCount++;
+			pgi++;
+		
+		
 			// A + B + C macro
 			pgi->nInput = GIT_MACRO_AUTO;
 			pgi->nType = BIT_DIGITAL;

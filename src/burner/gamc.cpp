@@ -446,6 +446,9 @@ int GamcPlayer(struct GameInp* pgi, char* szi, int nPlayer, int nDevice)
 				KEY(FBK_V);
 			}
 
+			if (_stricmp(szi, "Button BC") == 0) {
+				MACRO(FBK_F);
+			}
 			if (_stricmp(szi, "Button ABC") == 0) {
 				MACRO(FBK_A);
 			}
